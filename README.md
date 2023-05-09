@@ -118,6 +118,7 @@ Feel free to check the [issues page](../../issues/).
 <!-- SUPPORT -->
 
 ## ⭐️ Show your support <a name="support"></a>
+Staring this project ⭐
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
