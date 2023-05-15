@@ -33,6 +33,9 @@ gem 'jbuilder'
 # Tester
 gem 'rspec-rails'
 
+# Controllers tester
+gem 'rails-controller-testing'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
