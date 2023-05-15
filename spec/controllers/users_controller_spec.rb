@@ -1,10 +1,10 @@
 require 'rails_helper'
 describe UsersController, type: :controller do
-  render_views
-  before do
-    get :index
-  end
   describe 'GET #index' do
+    render_views
+    before do
+      get :index
+    end
     it 'Should return successful response' do
       expect(response).to have_http_status(:success)
     end
