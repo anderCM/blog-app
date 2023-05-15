@@ -14,7 +14,7 @@ describe UsersController, type: :controller do
     end
 
     it 'Should include Default text on template' do
-        expect(response.body).to include('List of users here')
+      expect(response.body).to include('List of users here')
     end
   end
 end
