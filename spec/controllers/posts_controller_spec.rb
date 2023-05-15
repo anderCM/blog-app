@@ -1,10 +1,14 @@
 require 'rails_helper'
-describe UsersController, type: :controller do
+describe PostsController, type: :controller do
   render_views
+
   describe 'GET #index' do
+    let(:user) { FactoryBot.create(:user) }
+
     before do
-      get :index
+      get :index, params: { user_id: user.id }
     end
+
     it 'Should return successful response' do
       expect(response).to have_http_status(:success)
     end
@@ -14,27 +18,26 @@ describe UsersController, type: :controller do
     end
 
     it 'Should include Default text on template' do
-      expect(response.body).to include('List of users here')
+      expect(response.body).to include('List of posts here')
     end
   end
 
   describe 'GET #show' do
-    let(:user) { FactoryBot.create(:user) }
-
+    let(:post) { FactoryBot.create(:post) }
+    let(:user) { post.author }
     before do
-      get :show, params: { id: user.id }
+      get :show, params: { user_id: user.id, id: post.id }
     end
-
     it 'Should return successful response' do
       expect(response).to have_http_status(:success)
     end
 
-    it 'Should render the show template' do
+    it 'Should render the index template' do
       expect(response).to render_template(:show)
     end
 
     it 'Should include Default text on template' do
-      expect(response.body).to include('User Details')
+      expect(response.body).to include('Post Details')
     end
   end
 end
