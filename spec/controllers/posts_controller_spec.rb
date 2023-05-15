@@ -32,7 +32,7 @@ describe PostsController, type: :controller do
       expect(response).to have_http_status(:success)
     end
 
-    it 'Should render the index template' do
+    it 'Should render the show template' do
       expect(response).to render_template(:show)
     end
 
