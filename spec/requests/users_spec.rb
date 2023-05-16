@@ -1,11 +1,10 @@
 require 'rails_helper'
 RSpec.describe 'Posts', type: :request do
   describe 'GET #index' do
-
     before do
       get users_path
     end
-    
+
     it 'Should return successful response' do
       expect(response).to have_http_status(:success)
     end
