@@ -39,6 +39,9 @@ gem 'rails-controller-testing'
 # Factory bot to simulate exactly the same object in DB when creating for example an user
 gem 'factory_bot'
 
+# Debugger
+gem 'pry'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
