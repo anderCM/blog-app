@@ -1,1 +1,26 @@
-<h1>User Details</h1>
+<div class="container my-3">
+  <div class="row border border-dark rounded bg-light shadow p-4 my-3 mx-auto">
+    <div class="col-3">
+      <img class="w-50 h-80" src="<%= @user.photo =%>" />
+    </div>
+    <div class="col-9 position-relative">
+      <h3><%= @user.name =%></h3>
+      <a class="position-absolute bottom-0 end-0 text-decoration-none" href="users/<%= @user.id =%>" role="button">Number of posts: <%= @user.post_counter =%></a>
+    </div>
+  </div>
+  <article class="border-dark rounded bg-light shadow p-4 my-3">
+    <h5>Bio</h5>
+    <p><%= @user.bio =%></p>
+  </article>
+
+  <% @posts.each do |post| %>
+    <article class="border-dark rounded bg-light shadow p-4 my-3">
+      <h5><%= post.title =%></h5>
+      <p><%= post.text =%></p>
+      <p class="float-end">Comments: <%= post.comment_counter =%>, Likes, <%= post.like_counter =%></p>
+    </article>
+  <% end %>
+  <div class="d-flex justify-content-center">
+  <a class="btn btn-outline-light w-25" type="button" href="<%= user_posts_path(@user) %>">See all posts</a>
+  </div>
+</div>
