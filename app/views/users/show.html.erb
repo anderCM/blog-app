@@ -5,7 +5,7 @@
     </div>
     <div class="col-9 position-relative">
       <h3><%= @user.name =%></h3>
-      <a class="position-absolute bottom-0 end-0 text-decoration-none" href="users/<%= @user.id =%>" role="button">Number of posts: <%= @user.post_counter =%></a>
+      <p class="position-absolute bottom-0 end-0 text-decoration-none mb-0">Number of posts: <%= @user.post_counter =%></p>
     </div>
   </div>
   <article class="border-dark rounded bg-light shadow p-4 my-3">
@@ -17,7 +17,9 @@
     <article class="border-dark rounded bg-light shadow p-4 my-3">
       <h5><%= post.title =%></h5>
       <p><%= post.text =%></p>
-      <p class="float-end">Comments: <%= post.comment_counter =%>, Likes, <%= post.like_counter =%></p>
+      <div class="d-flex justify-content-end">
+        <p class="mb-0">Comments: <%= post.comment_counter =%>, Likes, <%= post.like_counter =%></p>
+      </div>
     </article>
   <% end %>
   <div class="d-flex justify-content-center">
