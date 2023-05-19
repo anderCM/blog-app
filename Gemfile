@@ -42,6 +42,12 @@ gem 'factory_bot'
 # Debugger
 gem 'pry'
 
+# Styling
+gem 'bootstrap'
+
+# Scss pre processor
+gem 'sassc-rails'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

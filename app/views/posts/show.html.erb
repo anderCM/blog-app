@@ -1,1 +1,8 @@
-<h1>Post Details</h1>
+<article class="container border-dark rounded bg-light shadow p-4 my-3">
+  <div class="d-flex justify-content-between">
+    <h5 class="fw-bold"> <%= @post.title =%> by: <%= @post.author.name =%> </h5>
+    <p>Comments: <%= @post.comment_counter =%>, Likes: <%= @post.like_counter =%> </p>
+  </div>
+  <p> <%= @post.text =%> </p>
+  <%= render partial: 'shared/comments', locals: { post: @post } %>
+</article>

@@ -1,0 +1,7 @@
+<article class="border-dark rounded-top bg-light shadow p-4 mt-3">
+  <a class="fs-5 fw-bold text-dark text-decoration-none" role="button" href="<%= user_post_path(@user, post) =%>"><%= post.title =%></a>
+  <p><%= post.text =%></p>
+  <div class="d-flex justify-content-end">
+    <p class="mb-0">Comments: <%= post.comment_counter =%>, Likes: <%= post.like_counter =%></p>
+  </div>
+</article>
