@@ -2,6 +2,13 @@
   <a class="fs-5 fw-bold text-dark text-decoration-none" role="button" href="<%= user_post_path(@user, post) =%>"><%= post.title =%></a>
   <p><%= post.text =%></p>
   <div class="d-flex justify-content-end">
-    <p class="mb-0">Comments: <%= post.comment_counter =%>, Likes: <%= post.like_counter =%></p>
+    <p class="mb-0">
+      Comments: <%= post.comment_counter =%>,
+    </p>
+    <%= form_with url: user_post_likes_path(@user, post), method: :post do |form| %>
+      <%= form.submit "Likes: ", class: "btn btn-sm fw-bold" %>
+      <%= post.like_counter =%>
+    <% end %>
+    
   </div>
 </article>

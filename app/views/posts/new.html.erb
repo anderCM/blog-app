@@ -1,0 +1,6 @@
+<%= form_with model: @post, url: posts_path do |form| %>
+  <%= form.text_field :title %>
+  <%= form.text_area :text %>
+  <%= form.hidden_field :author, value: current_user %>
+  <%= form.submit "Create Post" %>
+<% end %>
