@@ -1,5 +1,5 @@
 <div class="bg-light p-3 rounded-bottom">
-  <% post.comments.each do |comment| %>
+  <% post.last_5_comments.each do |comment| %>
     <div class="border-dark rounded bg-light shadow p-4 my-3">
       <p><b><%= comment.user.name %>:</b> <%= comment.text %></p>
     </div>
