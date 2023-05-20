@@ -9,8 +9,18 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = current_user.posts.build(post_params)
-    @post.save ? (redirect_to @post) : (render :new)
+    @post = Post.new
+  end
+
+  def create
+    @post = Post.new(post_params)
+    @post.author = current_user
+    if @post.save
+      @post.update_counter
+      redirect_to user_path(current_user.id), notice: 'You created a post!'
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   private

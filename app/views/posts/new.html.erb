@@ -1,6 +1,14 @@
-<%= form_with model: @post, url: posts_path do |form| %>
-  <%= form.text_field :title %>
-  <%= form.text_area :text %>
-  <%= form.hidden_field :author, value: current_user %>
-  <%= form.submit "Create Post" %>
+<%= form_with model: @post, class: "col-md-6 mx-auto my-4 border rounded p-3", url: user_posts_path do |form| %>
+  <h2 class="text-center text-white fw-bold">New Post</h2>
+  <div class="form-floating mb-3">
+    <%= form.text_field :title, class: "form-control", id: "title", placeholder: "Enter title" %>
+    <label for="title">Title</label>
+  </div>
+  <div class="form-floating mb-3">
+    <%= form.text_area :text, class: "form-control", id: "text", placeholder: "Enter text" %>
+    <label for="text">Text</label>
+  </div>
+  <div class="text-center">
+    <%= form.submit "Create Post", class: "btn btn-outline-light" %>
+  </div>
 <% end %>
