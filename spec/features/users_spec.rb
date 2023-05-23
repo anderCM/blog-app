@@ -61,7 +61,7 @@ RSpec.describe 'Users' do
     end
 
     it 'Display Button to view Users posts' do
-      expect(page).to have_link('See all Posts')
+      expect(page).to have_link('See all posts')
     end
 
     it 'Clicking on User post redirects to User Post Show page' do
@@ -70,7 +70,7 @@ RSpec.describe 'Users' do
     end
 
     it 'Clicking See all redirects user to users posts index page' do
-      click_link(U'See all Posts')
+      click_link('See all posts')
       expect(page).to have_current_path(user_posts_path(User.first.id))
     end
   end
