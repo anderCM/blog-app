@@ -52,4 +52,5 @@ RSpec.describe 'Users' do
     it 'Should be able to see the user\'s bio' do
       expect(page).to have_content(User.first.bio)
     end
+  end
 end
