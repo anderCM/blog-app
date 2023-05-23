@@ -53,5 +53,25 @@ RSpec.describe 'Users' do
     it 'Should be able to see the user\'s bio' do
       expect(page).to have_content(User.first.bio)
     end
+
+    it 'See Users first three posts' do
+      expect(page).to have_content(User.first.last_3_posts[0].title)
+      expect(page).to have_content(User.first.last_3_posts[1].title)
+      expect(page).to have_content(User.first.last_3_posts[2].title)
+    end
+
+    it 'Display Button to view Users posts' do
+      expect(page).to have_link('See all Posts')
+    end
+
+    it 'Clicking on User post redirects to User Post Show page' do
+      click_link(User.first.last_3_posts[0].title)
+      expect(page).to have_current_path(user_post_path(User.first.id, User.first.last_3_posts[0].id))
+    end
+
+    it 'Clicking See all redirects user to users posts index page' do
+      click_link(U'See all Posts')
+      expect(page).to have_current_path(user_posts_path(User.first.id))
+    end
   end
 end
