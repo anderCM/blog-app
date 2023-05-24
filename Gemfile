@@ -39,6 +39,8 @@ gem 'rails-controller-testing'
 # Factory bot to simulate exactly the same object in DB when creating for example an user
 gem 'factory_bot'
 
+gem 'devise'
+
 # Debugger
 gem 'pry'
 
