@@ -40,7 +40,7 @@ RSpec.describe 'Posts' do
     end
 
     it 'Should be able to see how many likes a post has.' do
-      @posts.each do |post|
+      @posts.each do |_post|
         expect(page).to have_button("Likes: #{@posts[0].like_counter}")
       end
     end
