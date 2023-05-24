@@ -77,10 +77,32 @@ In order to run this project you need:
 Clone this repository to your desired folder:
 
 ```sh
-  git clone https://github.com/anderCM/blog-app.git
-  cd blog-app
-  bundle install
+$  git clone https://github.com/anderCM/blog-app.git
+$  cd blog-app
+$  bundle install
 ```
+
+### Usage
+
+To run the project locally, execute the following commands to :
+
+```sh
+$  rake db:create
+$  rake db:migrate
+$  rake db:seed
+$  rails server
+```
+
+To use the mailcatcher (allows you to sign up in development environment):
+
+In your terminal, run the following commands:
+
+```sh
+$  gem install mailcatcher
+$  mailcatcher
+```
+
+The mailcatcher is now set up and running, now simply go to `http://localhost:1080/` in your browser and you'll be able to see any outgoing emails from the application.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
