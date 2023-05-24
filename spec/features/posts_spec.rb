@@ -35,9 +35,13 @@ RSpec.describe 'Posts' do
       end
     end
 
+    it 'Should be able to see how many comments it has' do
+      expect(page).to have_content("Comments: #{@posts[0].comment_counter}")
+    end
+
     it 'Should be able to see how many likes a post has.' do
       @posts.each do |post|
-        expect(page).to have_content("Comments: #{post.comment_counter}")
+        expect(page).to have_button("Likes: #{@posts[0].like_counter}")
       end
     end
 
@@ -70,7 +74,6 @@ RSpec.describe 'Posts' do
 
     it 'Should be able to see how many likes it has' do
       expect(page).to have_button("Likes: #{@post.like_counter}")
-      # expect(page).to have_content("Likes: #{@post.like_counter}")
     end
 
     it 'Should see the post body.' do
