@@ -1,5 +1,5 @@
-<h2>Log in</h2>
 <div class='col-6 mx-auto text-white'>
+<h2>Log in</h2>
 <%= bootstrap_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
   <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
