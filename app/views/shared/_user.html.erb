@@ -3,7 +3,7 @@
     <img class="w-50 h-80" src="<%= user.photo =%>" />
   </div>
   <div class="col-9 position-relative">
-    <h3><%= user.name =%></h3>
+    <a class="text-decoration-none fs-2 fw-bold text-dark" href="<%= user_path(user) =%>"><%= user.name =%></a>
     <a class="position-absolute bottom-0 end-0 text-decoration-none" href="<%= user_path(user) =%>" role="button">Number of posts: <%= user.post_counter =%></a>
     <a class="position-absolute top-0 end-0 text-decoration-none btn btn-success rounded-circle fw-bold" href="<%= new_user_post_path(user) =%>" role="button">+</a>
   </div>

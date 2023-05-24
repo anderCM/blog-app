@@ -1,5 +1,4 @@
 <p>Comments: <%= post.comment_counter =%>,</p>
 <%= form_with url: user_post_likes_path(user, post), method: :post do |form| =%>
-  <%= form.submit "Likes: ", class: "btn btn-sm fw-bold" =%>
-  <%= post.like_counter =%>
+  <%= form.submit "Likes: #{post.like_counter}", class: "btn btn-sm fw-bold" =%>
 <% end %>
