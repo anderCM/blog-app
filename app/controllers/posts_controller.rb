@@ -27,7 +27,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy!
-    redirect_to user_path(current_user.id), notice: 'You deleted a post!'
+    redirect_to user_path(@post.author), notice: 'You deleted a post!'
   end
 
   private
