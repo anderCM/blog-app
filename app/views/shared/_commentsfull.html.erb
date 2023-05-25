@@ -1,0 +1,11 @@
+<div class="bg-light p-3 rounded-bottom">
+  <%= render template: 'comments/new', locals: { post: post } %>
+  <% post.comments.each do |comment| %>
+    <div class="border-dark rounded bg-light shadow p-4 my-3">
+      <% if can? :destroy , comment %>
+        <%= button_to(image_tag("trash.svg", class: 'trash-icon'), user_post_comment_path(@user, post, comment), method: :delete, class: "btn trash-btn float-end") %>
+      <% end %>
+      <p class="text-break"><b><%= comment.user.name %>:</b> <%= comment.text %></p>
+    </div>
+  <% end %>
+</div>
