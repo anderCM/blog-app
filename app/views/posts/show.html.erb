@@ -3,7 +3,7 @@
     <h5 class="fw-bold"> <%= @post.title =%> by: <%= @post.author.name =%> </h5>
     <div class="d-flex flex-column">
       <a class="text-decoration-none btn btn-danger fw-bold" href="<%= new_user_post_path(current_user) =%>" role="button">Delete Post</a>
-      <div class="d-flex">
+      <div class="d-flex mt-2">
       <%= render partial: 'shared/likes', locals: {user: @post.author, post: @post } =%>
       </div>
     </div>
