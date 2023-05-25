@@ -4,6 +4,7 @@
 .fit-contents {
   width: fit-content;
 }
+
 .fake-btn {
   border-color: #f7f9fa;
 }
@@ -12,7 +13,9 @@
   cursor: default;
 }
 
-.fake-btn:active, .fake-btn:focus, .fake-btn:target {
+.fake-btn:active,
+.fake-btn:focus,
+.fake-btn:target {
   outline: none !important;
   box-shadow: none;
   transition: none;
