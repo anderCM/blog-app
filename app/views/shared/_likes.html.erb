@@ -1,4 +1,4 @@
-<p>Comments: <%= post.comment_counter =%>,</p>
+<p class="fs-6 my-auto fw-bold fake-btn">Comments: <%= post.comment_counter =%>,</p>
 <%= form_with url: user_post_likes_path(user, post), method: :post do |form| =%>
-  <%= form.submit "Likes: #{post.like_counter}", class: "btn btn-sm fw-bold" =%>
+  <%= form.submit "Likes: #{post.like_counter}", class: "fs-6 btn btn-sm fw-bold" =%>
 <% end %>
