@@ -2,7 +2,7 @@
   <div class="d-flex justify-content-between">
     <h5 class="fw-bold"> <%= @post.title =%> by: <%= @post.author.name =%> </h5>
     <div class="d-flex flex-column">
-      <% if can? :destroy , current_user %>
+      <% if can? :destroy , @post %>
         <%= button_to("Delete Post", user_post_path(current_user, @post) , method: :delete, class: "w-100 text-decoration-none btn btn-danger fw-bold") %>
       <% end %>
       <div class="d-flex mt-2">
