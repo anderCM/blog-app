@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
   def index
     @user = User.find(params[:user_id])
     @posts = @user.posts.includes(:comments, comments: :user)
@@ -6,6 +7,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @user = @post.author
   end
 
   def new
@@ -16,11 +18,16 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.author = current_user
     if @post.save
-      @post.update_counter
       redirect_to user_path(current_user.id), notice: 'You created a post!'
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy!
+    redirect_to user_path(@post.author), notice: 'You deleted a post!'
   end
 
   private

@@ -1,11 +1,16 @@
 <article class="container border-dark rounded bg-light shadow p-4 my-3">
   <div class="d-flex justify-content-between">
     <h5 class="fw-bold"> <%= @post.title =%> by: <%= @post.author.name =%> </h5>
-    <div class="d-flex">
-    <%= render partial: 'shared/likes', locals: {user: @post.author, post: @post } =%>
+    <div class="d-flex flex-column">
+      <% if can? :destroy , @post %>
+        <%= button_to("Delete Post", user_post_path(current_user, @post) , method: :delete, class: "w-100 text-decoration-none btn btn-danger fw-bold") %>
+      <% end %>
+      <div class="d-flex mt-2">
+      <%= render partial: 'shared/likes', locals: {user: @post.author, post: @post } =%>
+      </div>
     </div>
     
   </div>
   <p> <%= @post.text =%> </p>
-  <%= render partial: 'shared/comments', locals: { post: @post } %>
+  <%= render partial: 'shared/commentsfull', locals: { post: @post } %>
 </article>

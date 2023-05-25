@@ -1,2 +1,30 @@
 @import 'bootstrap';
 @import "rails_bootstrap_forms";
+
+.fit-contents {
+  width: fit-content;
+}
+
+.fake-btn {
+  border-color: #f7f9fa;
+}
+
+.fake-btn:hover {
+  cursor: default;
+}
+
+.fake-btn:active,
+.fake-btn:focus,
+.fake-btn:target {
+  outline: none !important;
+  box-shadow: none;
+  transition: none;
+}
+
+.trash-btn {
+  filter: invert(22%) sepia(83%) saturate(6527%) hue-rotate(355deg) brightness(100%) contrast(124%);
+}
+
+.trash-icon {
+  height: 1.5rem;
+}

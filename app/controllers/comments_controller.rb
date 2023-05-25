@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  load_and_authorize_resource
+
   def new
     @comment = Comment.new
   end
@@ -13,6 +15,12 @@ class CommentsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy!
+    redirect_to user_post_path(@comment.post.author, @comment.post), notice: 'You deleted a comment!'
   end
 
   private

@@ -96,3 +96,4 @@ group :test do
 end
 
 gem 'bootstrap_form'
+gem 'cancancan'

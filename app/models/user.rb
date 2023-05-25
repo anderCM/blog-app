@@ -12,6 +12,10 @@ class User < ApplicationRecord
   has_many :comments, foreign_key: :author_id
   has_many :likes, foreign_key: :author_id
 
+  def is?(requested_role)
+    role == requested_role.to_s
+  end
+
   def last_3_posts
     posts.includes(:author).order(created_at: :desc).limit(3)
   end
