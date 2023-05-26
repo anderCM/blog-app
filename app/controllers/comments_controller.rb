@@ -10,8 +10,11 @@ class CommentsController < ApplicationController
     @comment = @post.comments.new(comment_params)
     @comment.user = current_user
     if @comment.save
-      @comment.update_counter
-      redirect_to user_post_path(current_user.id, @post.id), notice: 'You created a comment!'
+      respond_to? do |format|
+      format.json { render json: @comment, status: :created, location: @comment}
+      # @comment.update_counter
+      format.html {redirect_to user_post_path(current_user.id, @post.id), notice: 'You created a comment!'}
+      end
     else
       render :new, status: :unprocessable_entity
     end
