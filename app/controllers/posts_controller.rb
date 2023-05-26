@@ -8,6 +8,11 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @user = @post.author
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @post.comments }
+    end
   end
 
   def new
