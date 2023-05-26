@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  load_and_authorize_resource
+  skip_before_action :verify_authenticity_token
 
   def new
     @comment = Comment.new
@@ -7,13 +7,21 @@ class CommentsController < ApplicationController
 
   def create
     @post = Post.find(params[:post_id])
-    @comment = @post.comments.new(comment_params)
-    @comment.user = current_user
+    user = current_user || User.last
+
+    @comment = Comment.create(comment_params)
+    @comment.user = user
+    @comment.post = @post
+
     if @comment.save
-      respond_to? do |format|
-      format.json { render json: @comment, status: :created, location: @comment}
-      # @comment.update_counter
-      format.html {redirect_to user_post_path(current_user.id, @post.id), notice: 'You created a comment!'}
+      respond_to do |format|
+        format.json do
+          render json: @comment
+        end
+        @comment.update_counter
+        format.html do
+          redirect_to user_post_path(current_user.id, @post.id), notice: 'You created a comment!'
+        end
       end
     else
       render :new, status: :unprocessable_entity
@@ -29,6 +37,6 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:text, :post_id, :user)
+    params.require(:comment).permit(:text)
   end
 end
