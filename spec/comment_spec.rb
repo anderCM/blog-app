@@ -24,7 +24,6 @@ describe Comment, type: :model do
     user_comment.save
     comment = Comment.new(user: user_comment, post:, text: "Hello @#{user.name}, it's interesting because....")
     comment.save
-    comment.update_counter
     expect(post.comment_counter).to eq(1)
   end
 end

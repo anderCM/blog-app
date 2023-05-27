@@ -26,7 +26,6 @@ class CommentsController < ApplicationController
         format.json do
           render json: @comment
         end
-        @comment.update_counter
         format.html do
           redirect_to user_post_path(current_user.id, @post.id), notice: 'You created a comment!'
         end
