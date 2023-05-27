@@ -43,7 +43,6 @@ describe Post, type: :model do
     post = Post.new(author:, title: 'Hello1', text: 'This is my first post', comment_counter: 0,
                     like_counter: 0)
     post.save
-    post.update_counter
     expect(author.post_counter).to eq(1)
   end
 

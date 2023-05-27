@@ -15,7 +15,6 @@ describe Like, type: :model do
   end
 
   it 'Should increase post counter' do
-    @like.update_counter
     expect(@post.like_counter).to eq(1)
   end
 end

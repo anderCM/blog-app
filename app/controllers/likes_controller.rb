@@ -1,10 +1,8 @@
 class LikesController < ApplicationController
-  load_and_authorize_resource
   def create
     @post = Post.find(params[:post_id])
     @like = Like.new(user: current_user, post: @post)
     if @like.save!
-      @like.update_counter
       redirect_to user_post_path(params[:user_id], params[:post_id]), notice: 'You Liked this post!'
     else
       render :new, status: :unprocessable_entity

@@ -8,7 +8,15 @@
 
 require 'faker'
 
-6.times { user = User.create!(name: Faker::Name.first_name, photo: Faker::Avatar.image, bio: Faker::Job.title, post_counter: 10) }
+6.times do
+user = User.create!(
+  email: Faker::Internet.email,
+  password: Faker::Internet.password,
+  name: Faker::Name.first_name,
+  photo: Faker::Avatar.image,
+  bio: Faker::Job.title,
+  post_counter: 10)
+end
 
 User.all.each do |user|
   10.times do
